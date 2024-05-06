@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You Container</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    .container {
+        width: 500px;
+        height: 600px;
+        background-color: #fff;
+        border-radius: 100px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        position: relative;
+        border-radius: 6px;
+        transition: 0.3s ease-in-out;
+    }
+
+    .container:hover {
+        transform: scale(1.03);
+        width: 20px;
+    }
+
+    .container:hover  {
+        width: 50%;
+		height: 50%;
+    }
+
+    .left-side {
+        background-color: #5de2a3;
+        width: 130px;
+        height: 120px;
+        border-radius: 4px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.3s;
+        flex-shrink: 0;
+        overflow: hidden;
+    }
+
+    .right-side {
+        width: calc(100% - 130px);
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        cursor: pointer;
+        justify-content: space-between;
+        white-space: nowrap;
+        transition: 0.3s;
+    }
+
+    .right-side:hover {
+        background-color: #f9f7f9;
+    }
+
+    .arrow {
+        width: 20px;
+        height: 20px;
+        margin-right: 20px;
+    }
+
+    .new {
+        font-size: 23px;
+        font-family: "Lexend Deca", sans-serif;
+        margin-left: 20px;
+    }
+
+    .card {
+        width: 70px;
+        height: 46px;
+        background-color: #c7ffbc;
+        border-radius: 6px;
+        position: absolute;
+        display: flex;
+        z-index: 10;
+        flex-direction: column;
+        align-items: center;
+        -webkit-box-shadow: 9px 9px 9px -2px rgba(77, 200, 143, 0.72);
+        -moz-box-shadow: 9px 9px 9px -2px rgba(77, 200, 143, 0.72);
+        -webkit-box-shadow: 9px 9px 9px -2px rgba(77, 200, 143, 0.72);
+    }
+
+    .card-line {
+        width: 65px;
+        height: 13px;
+        background-color: #80ea69;
+        border-radius: 2px;
+        margin-top: 7px;
+    }
+
+    @media only screen and (max-width: 480px) {
+        .container {
+            transform: scale(0.7);
+        }
+
+        .container:hover {
+            transform: scale(0.74);
+        }
+
+        .new {
+            font-size: 18px;
+        }
+    }
+
+    .buttons {
+        width: 8px;
+        height: 8px;
+        background-color: #379e1f;
+        box-shadow: 0 -10px 0 0 #26850e, 0 10px 0 0 #56be3e;
+        border-radius: 50%;
+        margin-top: 5px;
+        transform: rotate(90deg);
+        margin: 10px 0 0 -30px;
+    }
+
+    .container:hover .card {
+        animation: slide-top 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+    }
+
+    .container:hover .post {
+        animation: slide-post 1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+    }
+
+    @keyframes slide-top {
+        0% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+
+        50% {
+            -webkit-transform: translateY(-70px) rotate(90deg);
+            transform: translateY(-70px) rotate(90deg);
+        }
+
+        60% {
+            -webkit-transform: translateY(-70px) rotate(90deg);
+            transform: translateY(-70px) rotate(90deg);
+        }
+
+        100% {
+            -webkit-transform: translateY(-8px) rotate(90deg);
+            transform: translateY(-8px) rotate(90deg);
+        }
+    }
+
+    .post {
+        width: 63px;
+        height: 75px;
+        background-color: #dddde0;
+        position: absolute;
+        z-index: 11;
+        bottom: 10px;
+        top: 120px;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    .post-line {
+        width: 47px;
+        height: 9px;
+        background-color: #545354;
+        position: absolute;
+        border-radius: 0px 0px 3px 3px;
+        right: 8px;
+        top: 8px;
+    }
+
+    .post-line:before {
+        content: "";
+        position: absolute;
+        width: 47px;
+        height: 9px;
+        background-color: #757375;
+        top: -8px;
+    }
+
+    .screen {
+        width: 47px;
+        height: 23px;
+        background-color: #ffffff;
+        position: absolute;
+        top: 22px;
+        right: 8px;
+        border-radius: 3px;
+    }
+
+    .numbers {
+        width: 12px;
+        height: 12px;
+        background-color: #838183;
+        box-shadow: 0 -18px 0 0 #838183, 0 18px 0 0 #838183;
+        border-radius: 2px;
+        position: absolute;
+        transform: rotate(90deg);
+        left: 25px;
+        top: 52px;
+    }
+
+    .numbers-line2 {
+        width: 12px;
+        height: 12px;
+        background-color: #aaa9ab;
+        box-shadow: 0 -18px 0 0 #aaa9ab, 0 18px 0 0 #aaa9ab;
+        border-radius: 2px;
+        position: absolute;
+        transform: rotate(90deg);
+        left: 25px;
+        top: 68px;
+    }
+
+    @keyframes slide-post {
+        50% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+
+        100% {
+            -webkit-transform: translateY(-70px);
+            transform: translateY(-70px);
+        }
+    }
+
+    .dollar {
+        position: absolute;
+        font-size: 16px;
+        font-family: "Lexend Deca", sans-serif;
+        width: 100%;
+        left: 0;
+        top: 0;
+        color: #4b953b;
+        text-align: center;
+    }
+
+    .container:hover .dollar {
+        animation: fade-in-fwd 0.3s 1s backwards;
+    }
+
+    @keyframes fade-in-fwd {
+        0% {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .message {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+	        .notifications-container {
+            width: 320px;
+            height: auto;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 0 auto; /* Centering */
+            justify-content: center; /* Centering */
+            align-items: center; /* Centering */
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-shrink-0 {
+            flex-shrink: 0;
+        }
+
+        .success {
+            padding: 1rem;
+            border-radius: 0.375rem;
+            background-color: rgb(240 253 244);
+        }
+
+        .succes-svg {
+            color: rgb(74 222 128);
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .success-prompt-wrap {
+            margin-left: 0.75rem;
+        }
+
+        .success-prompt-heading {
+            font-weight: bold;
+            color: rgb(22 101 52);
+        }
+
+        .success-prompt-prompt {
+            margin-top: 0.5rem;
+            color: rgb(21 128 61);
+        }
+
+        .success-button-container {
+            display: flex;
+            margin-top: 0.875rem;
+            margin-bottom: -0.375rem;
+            margin-left: -0.5rem;
+            margin-right: -0.5rem;
+        }
+
+        .success-button-main {
+            padding-top: 0.375rem;
+            padding-bottom: 0.375rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            background-color: #ECFDF5;
+            color: rgb(22 101 52);
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: bold;
+            border-radius: 0.375rem;
+            border: none;
+        }
+
+        .success-button-main:hover {
+            background-color: #D1FAE5;
+        }
+
+        .success-button-secondary {
+            padding-top: 0.375rem;
+            padding-bottom: 0.375rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            margin-left: 0.75rem;
+            background-color: #ECFDF5;
+            color: #065F46;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            border-radius: 0.375rem;
+            border: none;
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="message">
+            <p>THANK YOU</p>
+            <p>FOR YOUR PURCHASE</p>
+            <div class="left-side">
+                <div class="card">
+                    <div class="card-line"></div>
+                    <div class="buttons"></div>
+                </div>
+                <div class="post">
+                    <div class="post-line"></div>
+                    <div class="screen">
+                        <div class="dollar">$</div>
+                    </div>
+                    <div class="numbers"></div>
+                    <div class="numbers-line2"></div>
+                </div>
+            </div>
+            <div class="center-side">
+                <div class="new">✯
+✯
+✯
+✯
+</div>
+                <svg viewBox="0 0 51.846 51.847" height="512" width="512" xmlns="http://www.w3.org/2000/svg" class="arrow"><path fill="#cfcfcf" data-old_color="#000000" class="active-path" data-original="#000000" d="M345.441 248.292L151.154 442.573c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744L278.318 225.92 106.409 54.017c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.287 194.284c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373z"></path></svg>
+            </div>
+			<div class="notifications-container">
+    <div class="success">
+        <div class="flex">
+            <div class="flex-shrink-0">
+                <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div class="success-prompt-wrap">
+                <p class="success-prompt-heading">Order completed
+                </p>
+                <div class="success-prompt-prompt">
+                    <p>You're happy now? Does this impulsive action is really going to satisfy you? Don't answer me, answer yourself. Anyway, your party-size pizza combo is on its way.</p>
+                </div>
+                <div class="success-button-container">
+                    <button type="button" class="success-button-main">View status</button>
+                    <button type="button" class="success-button-secondary">Dismiss</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+</body>
+</html>

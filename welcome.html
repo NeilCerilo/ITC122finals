@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sedan+SC&display=swap" rel="stylesheet">
+    <title>World's Greatest Chronicles</title>
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styling */
+        body {
+       
+  font-family: "Sedan SC", serif;
+  font-weight: 400;
+  font-style: normal;   
+  background-color: #BB6C2F; /* Changed body background color to dirty brown */
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+			  position: relative;
+			   border: solid;
+        }
+		.container img {vertical-align: middle;}
+
+.container .content {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+  border: solid;
+}
+
+        header {
+            background-color: black; /* Changed color to beige */
+            color: #000000; /* Changed text color to dark */
+            padding: 20px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: beige; /* Changed color to beige */
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            color: #fff; /* Change color on hover */
+        }
+
+        nav ul {
+            list-style-type: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+            border: 1px solid #333; /* Add border to the buttons */
+            border-radius: 5px; /* Add border radius for rounded corners */
+        }
+
+        nav ul li a {
+            color: #333; /* Changed link color to dark */
+            text-decoration: none;
+            padding: 5px 10px; /* Add padding to the buttons */
+        }
+
+        nav ul li a:hover {
+            background-color: beige; /* Change background color on hover */
+            color: #fff; /* Change text color on hover */
+        }
+
+        /* Hero section */
+        .hero {
+            background-image: url('bg.jpg');
+            background-size: cover;
+            text-align: center;
+            padding: 200px 0;
+            position: relative;
+        }
+
+        .hero .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: black;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+       .btn {
+ padding: 1.1em 2em;
+ background: none;
+ border: 2px solid #fff;
+ font-size: 15px;
+ color: #131313;
+ cursor: pointer;
+ position: relative;
+ overflow: hidden;
+ transition: all 0.3s;
+ border-radius: 12px;
+ background-color: #ecd448;
+ font-weight: bolder;
+ box-shadow: 0 2px 0 2px #000;
+}
+
+
+
+.btn:before {
+ content: "";
+ position: absolute;
+ width: 100px;
+ height: 120%;
+ background-color: #ff6700;
+ top: 50%;
+ transform: skewX(30deg) translate(-150%, -50%);
+ transition: all 0.5s;
+ 
+}
+
+.btn:hover {
+ background-color: #4cc9f0;
+ color: #fff;
+ box-shadow: 0 2px 0 2px #0d3b66;
+}
+
+.btn:hover::before {
+ transform: skewX(30deg) translate(150%, -50%);
+ transition-delay: 0.1s;
+}
+
+.btn:active {
+ transform: scale(0.9);
+}
+
+        footer p {
+            text-align: center;
+            font-size: 14px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            color: #000000; /* Changed text color to dark */
+        }
+
+        /* New CSS for image text blocks */
+        .image-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .image-container img {
+            width: 100%;
+             border: 5px solid #555;
+        }
+
+        .text-block {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent black */
+            color: white;
+            padding-top: 60px;
+            padding-left: 60px; /* Increased left padding */
+            padding-right: 60px; /* Increased right padding */
+            padding-bottom: 50px;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        /* Hide the images by default */
+        .mySlides {
+            display: none;
+        }
+
+        /* Fading animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+		.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">World's Greatest Chronicles</a>
+                   
+			<audio controls autoplay
+			style="width: 150px;height: 30px;">
+  <source src="isekai.mp3" type="audio/mpeg">
+</audio>
+
+				<nav>
+                    <ul>
+                        
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li><li>
+						<a href="index.html">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Welcome to Our  Vintage Book And Comics Store</h1>
+            <p>Discover amazing Vintage products at LOW prices!</p>
+            <a href="trial.html" class="btn">Shop Now</a>
+        </div>
+    </section>
+	<br><br><br>
+<div class="container">
+  <img src="stan.jpg" alt="Notebook" style="width:100%;">
+  <div class="content">
+    <h1>Stan Lee - One of the people who made our childhood perfect</h1>
+    <p><i>"I'm no prophet, but I'm guessing that comic books will always be strong. I don't think anything can really beat the pure fun and pleasure of holding a magazine in your hand, reading the story on paper, being able to roll it up and put it in your pocket, reread again later, show it to a friend, carry it with you, toss it on a shelf, collect them, have a lot of magazines lined up and read them again as a series. I think young people have always loved that. I think they always will."</i></p>
+  </div>
+</div>
+<br><div class="container">
+  <video width="100%" controls autoplay>
+  <source src="marvel.mp4" type="video/mp4">
+</video>
+  <div class="content">
+  
+  </div>
+</div>
+<br>
+
+<div class="container">
+  <img src="writer.jpg" alt="Notebook" style="width:100%;">
+  <div class="content">
+    <h1> The people who  invoked our emotions</h1>
+    <p><i></i></p>
+  </div>
+</div>
+<br>
+
+
+    <div class="container">
+        <div class="image-container slideshow-container">
+            <div class="mySlides fade">
+                <img src="img.png" alt="Nature">
+                <div class="text-block">
+                    <h4>Serenity Within The books</h4>
+                    <p>Embrace the Love and Be Invoked in the Beauty of the Books, Novels, and Stories that will make you feel alive and home within.</p>
+                </div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="pics.webp" alt="Nature">
+                <div class="text-block">
+                    <h4>Serenity Within The books</h4>
+                    <p>Embrace the Love and Be Invoked in the Beauty of the Books, Novels, and Stories that will make you feel alive and home within.</p>
+                </div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="1.jpg" alt="Nature">
+                <div class="text-block">
+                    <h4>Serenity Within The books</h4>
+                    <p>Embrace the Love and Be Invoked in the Beauty of the Books, Novels, and Stories that will make you feel alive and home within.</p>
+                </div>
+            </div>
+
+            <!-- Next & previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+        <br>
+
+        <!-- The dots/bullets/indicators -->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('marvel.gif'); /* Replace 'background.jpg' with your image file */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Added to allow absolute positioning */
+        }
+        .login-container {
+            background: rgba(139, 69, 19, 0.3); /* Brown color with light transparency */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            max-width: 300px;
+            width: 100%;
+            z-index: 1; /* Ensure login container is below spinner */
+            position: absolute; /* Position absolutely */
+            top: 50px; /* Adjust the position from the top */
+            right: 50px; /* Adjust the position from the right */
+        }
+        .login-container h2 {
+            text-align: center;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .login-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .spinner {
+            width: 70.4px;
+            height: 70.4px;
+            --clr: black; /* Change to black color */
+            --clr-alpha: rgba(0, 0, 0, 0.1); /* Adjust transparency as needed */
+            animation: spinner 1.6s infinite ease;
+            transform-style: preserve-3d;
+            position: absolute; /* Position absolutely */
+            top: 50px; /* Adjust the position from the top */
+            left: calc(50% - 35.2px); /* Adjust the position from the left */
+            transform: none; /* Remove the transform for centering */
+            z-index: 1; /* Ensure spinner is above login container */
+        }
+
+        .spinner > div {
+            background-color: var(--clr-alpha);
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            border: 3.5px solid var(--clr);
+        }
+
+        .spinner div:nth-of-type(1) {
+            transform: translateZ(-35.2px) rotateY(180deg);
+        }
+
+        .spinner div:nth-of-type(2) {
+            transform: rotateY(-270deg) translateX(50%);
+            transform-origin: top right;
+        }
+
+        .spinner div:nth-of-type(3) {
+            transform: rotateY(270deg) translateX(-50%);
+            transform-origin: center left;
+        }
+
+        .spinner div:nth-of-type(4) {
+            transform: rotateX(90deg) translateY(-50%);
+            transform-origin: top center;
+        }
+
+        .spinner div:nth-of-type(5) {
+            transform: rotateX(-90deg) translateY(50%);
+            transform-origin: bottom center;
+        }
+
+        .spinner div:nth-of-type(6) {
+            transform: translateZ(35.2px);
+        }
+
+        @keyframes spinner {
+            0% {
+                transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
+            }
+
+            50% {
+                transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
+            }
+
+            100% {
+                transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
+            }
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="verify.html" method="post"> <!-- Replace "#" with the action URL -->
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    <div class="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

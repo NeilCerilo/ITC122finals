@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('bg.avif'); /* Replace 'your_image.jpg' with the path to your image */
+  background-size: cover; /* Ensure the background image covers the entire body */
+}
+
+.header {
+  background-color: rgba(0, 0, 0, 0.7); /* Add transparency to the header background */
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative; /* Position relative for absolute positioning of back button */
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none; /* Remove default link underline */
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  max-width: 800px; /* Adjusted max-width */
+  margin: 0 auto; /* Center the container */
+  background-color: rgba(255, 255, 255, 0.2); /* More transparent container */
+}
+
+.portfolio-item {
+  width: calc(22%); /* Adjusted width */
+  margin: 10px; /* Increased margin */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative; /* Added position for overlay */
+  height: 300px; /* Set a fixed height for the portfolio item */
+}
+
+.portfolio-item:hover {
+  transform: scale(1.1); /* Increase size on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%; /* Adjusted height */
+  display: block;
+  object-fit: cover; /* Ensure images maintain aspect ratio and cover entire container */
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  width: 100%;
+  transition: .5s ease;
+  opacity: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.portfolio-item:hover .overlay {
+  opacity: 1;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button {
+  background-color: #333;
+  color: white;
+  padding: 15px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.button.active {
+  background-color: #555;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Product Lists</h1>
+  <a href="welcome.html" class="back-button">Back</a>
+  <div class="button-container">
+    <button class="button active" onclick="filterSelection('all')">All</button>
+    <button class="button" onclick="filterSelection('graphic')">Books</button>
+    <button class="button" onclick="filterSelection('photo')">Comics</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="portfolio-item graphic">
+    <a href="gatsby.html">
+      <img src="great.webp" alt="Graphic Design">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>
+ 
+  <div class="portfolio-item graphic">
+    <a href="beauty.html">
+      <img src="damned.jpg" alt="Graphic Design">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>   
+  <div class="portfolio-item graphic">
+    <a href="hamlet.html">
+      <img src="hamlet.webp" alt="Graphic Design">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>   
+  <div class="portfolio-item graphic">
+    <a href="tempest.html">
+      <img src="tempest.jpg" alt="Graphic Design">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>  
+  <div class="portfolio-item graphic">
+    <a href="romeo.html">
+      <img src="romeo.jpg" alt="Graphic Design">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>  
+  <div class="portfolio-item graphic">
+    <a href="mans.html">
+      <img src="mans.jpg" alt="Graphic Design">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>
+  <div class="portfolio-item graphic">
+    <a href="hobbit.html">
+      <img src="hobbit.jpg" alt="Graphic Design">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>
+  <div class="portfolio-item graphic">
+    <a href="et.html">
+      <img src="et.webp" alt="Graphic Design">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>
+  <div class="portfolio-item graphic">
+    <a href="harry.html">
+      <img src="harry.jpg" alt="Graphic Design">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>
+   <div class="portfolio-item graphic">
+    <a href="secrets.html">
+      <img src="secrets.avif" alt="Graphic Design">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>   
+  <div class="portfolio-item graphic">
+    <a href="prison.html">
+      <img src="prison.jpg" alt="Graphic Design">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>  
+  <div class="portfolio-item graphic">
+    <a href="death.html">
+      <img src="death.jpg" alt="Graphic Design">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>  
+  <div class="portfolio-item photo">
+    <a href="spiderman.html">
+      <img src="spider.jpg" alt="Photography">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>
+  <div class="portfolio-item photo">
+    <a href="checkout.html">
+      <img src="sman.png" alt="Photography">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>
+  <div class="portfolio-item photo">
+    <a href="phantom.html">
+      <img src="phantom.jpg" alt="Photography">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>
+  <div class="portfolio-item photo">
+    <a href="hulk.html">
+      <img src="hulk.jpg" alt="Photography">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>
+  <div class="portfolio-item photo">
+    <a href="resident.html">
+      <img src="evil.jpg" alt="Photography">
+      <div class="overlay">Buy Now</div>
+    </a> 
+  </div>
+  <div class="portfolio-item photo">
+    <a href="marvel.html">
+      <img src="avengers.jpg" alt="Photography">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>  
+  <div class="portfolio-item photo">
+    <a href="eternal.html">
+      <img src="eternal.jpg" alt="Photography">
+      <div class="overlay">Buy Now</div>    </a>
+  </div>  
+  <div class="portfolio-item photo">
+    <a href="capt.html">
+      <img src="america.jpg" alt="Photography">
+      <div class="overlay">Buy Now</div>
+    </a>
+  </div>
+</div>
+
+<script>
+function filterSelection(category) {
+  var items = document.querySelectorAll('.portfolio-item');
+  if (category === 'all') {
+    items.forEach(function(item) {
+      item.style.display = 'block';
+    });
+  } else {
+    items.forEach(function(item) {
+      if (item.classList.contains(category)) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+  var buttons = document.querySelectorAll('.button');
+  buttons.forEach(function(button) {
+    button.classList.remove('active');
+  });
+  document.querySelector('.' + category).classList.add('active');
+}
+</script>
+
+</body>
+</html>
